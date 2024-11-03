@@ -1,2 +1,4 @@
 this is a simple medicle clinic that can provide and suggest best doctors near you.its also help to find clinic in your area.
 ![image alt](https://github.com/user-attachments/assets/6a953a55-a8ca-403f-8dcb-214d7fed998d)
+this websites will works in future for a specific clinic .in any case if you want any advice about yourhealth regarding you can contact with our facalities.
+![image alt]![image](https://github.com/user-attachments/assets/83583f91-11fc-4e77-8c57-add723ecf9d1)
