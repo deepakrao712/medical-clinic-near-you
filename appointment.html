@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment Form</title>
+    <style>
+        
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("https://wallpaperaccess.com/full/624111.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    width: 100%;
+}
+
+/* Heading styling */
+h2 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+select {
+    padding: 10px; /* Increased padding for better touch targets */
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #dcdcdc;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for input fields */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+/* Payment information styles */
+fieldset {
+    border: 1px solid #dcdcdc;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for fieldset */
+}
+
+legend {
+    font-weight: bold;
+    color: #333333;
+    font-size: 16px;
+}
+
+#paymentInfo {
+    color: #7f8c8d;
+    font-size: 14px;
+    text-align: center;
+}
+
+#qr-code {
+    display: block;
+    margin: 10px auto;
+}
+
+/* Button styling */
+button[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+/* Confirmation message styling */
+#confirmationMessage {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        box-shadow: none;
+        max-width: 90%;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="time"],
+    select {
+        font-size: 16px;
+    }
+
+    button[type="submit"] {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="time"],
+    select {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button[type="submit"] {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+</style>
+<body style="background-color: rgb(24, 199, 205);">
+    <div class="container">
+        <h2>Doctor Appointment Form</h2>
+        <form id="appointmentForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="date">Appointment Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Appointment Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="doctor">Choose Doctor:</label>
+            <select id="doctor" name="doctor" required>
+                <option value="gaurav gupta" data-fee="100" data-qr="C:\Users\rs898\Downloads\qr1.jpg">Dr. gaurav gupta - 100</option>
+                <option value="dr_aarati_shrivastav" data-fee="150" data-qr="C:\Users\rs898\Downloads\qr2.png">DR.Aarati shrivastav - 150</option>
+                <option value="dr_deepakrao" data-fee="200" data-qr="C:\Users\rs898\Downloads\qr3.png">Dr.Deepak - 200</option>
+            </select>
+
+            <fieldset>
+                <legend>Payment Information</legend>
+                <p id="paymentInfo">Please select a doctor to see the appointment fee.</p>
+                <img src="C:\Users\rs898\Downloads\qr1.jpg" width="90" height="110" id="qr-code">
+            </fieldset>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <p id="confirmationMessage" style="display: none; color: green; margin-top: 20px;"></p>
+    </div>
+    <script>
+        
+
+document.addEventListener('DOMContentLoaded', () => {
+    const doctorSelect = document.getElementById('doctor');
+    const paymentInfo = document.getElementById('paymentInfo');
+    const qrCode = document.getElementById('qr-code');
+    const appointmentForm = document.getElementById('appointmentForm');
+    const confirmationMessage = document.getElementById('confirmationMessage');
+
+    // Function to update payment info based on selected doctor
+    const updatePaymentInfo = () => {
+        const selectedOption = doctorSelect.options[doctorSelect.selectedIndex];
+        const fee = selectedOption.getAttribute('data-fee');
+        const qrSrc = selectedOption.getAttribute('data-qr');
+
+        paymentInfo.textContent = `The appointment fee is rupees{fee}. Please scan the QR code below to make the payment.`;
+        qrCode.src = qrSrc;
+        qrCode.style.display = 'block';
+    };
+
+    // Event listener for doctor selection change
+    doctorSelect.addEventListener('change', updatePaymentInfo);
+
+    // Form submission event
+    appointmentForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent default form submission
+
+        // Perform form validation
+        if (appointmentForm.checkValidity()) {
+            // Display confirmation message
+            confirmationMessage.textContent = 'Your appointment has been successfully booked!';
+            confirmationMessage.style.display = 'block';
+
+            // Clear form fields after submission
+            appointmentForm.reset();
+            paymentInfo.textContent = 'Please select a doctor to see the appointment fee.';
+            qrCode.style.display = 'none';
+        } else {
+            // Handle form validation failure (optional)
+            confirmationMessage.textContent = 'Please fill out all required fields correctly.';
+            confirmationMessage.style.color = 'red';
+            confirmationMessage.style.display = 'block';
+        }
+    });
+
+    // Initial setup: hide QR code on page load
+    qrCode.style.display = 'none';
+});
+
+    </script>
+</body>
+</html>

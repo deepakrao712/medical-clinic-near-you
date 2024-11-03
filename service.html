@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root{
+    --blue:#0188df;
+    --black:#01060a;
+    --wigth:#fff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    text-transform: capitalize;
+    outline: none;
+    transition: all linear .2s;
+    scroll-behavior: smooth;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+.button{
+    width: 15rem;
+    height: 3.5rem;
+    background: var(--blue);
+    color: var(--wigth);
+    font-size: 1.7rem;
+    text-transform: capitalize;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin: 1rem 0;
+    border: .1rem solid var(--blue);
+}
+.blog .box-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .blog .box-container .box {
+        width: 35rem;
+        margin: 2rem 1rem;
+        overflow: hidden;
+        border-radius: .5rem;
+        box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+    }
+    .blog .box-container .box img {
+        width: 100%;
+        object-fit: cover;
+    }
+    .blog .box-container .box .content {
+        padding: 0 1.5rem;
+    }
+    .blog .box-container .box .content h2 {
+        font-size: 2rem;
+        color: var(--blue);
+    }
+    .blog .box-container .box .content p {
+        font-size: 1.3rem;
+        color: var(--black);
+    }
+.button:hover{
+    border: .1rem solid var(--blue);
+    background: var(--wigth);
+    color: var(--blue);
+    letter-spacing: .2rem;
+}
+.title{
+    text-align: center;
+    padding: 0rem 1rem;
+    font-size: 2.5rem;
+    color: var(--black);
+    font-weight: 300;
+}
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    padding: 1rem;
+    padding-top: 8rem;
+    color: var(--blue);
+    letter-spacing: .1rem;
+}
+header{
+    width: 96%;
+    background: var(--wigth);
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    z-index: 1000;
+}
+header a{
+    color: var(--black);
+}
+header a:hover{
+    color: var(--blue);
+}
+header .logo{
+    font-size: 3rem;
+}
+header .logo span{
+    color: var(--blue);
+}
+header .navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+header .navbar ul li{
+    margin: 0 1rem;
+}
+header .navbar ul li a{
+    font-size: 2rem;
+    color: var(--black);
+}
+header .navbar ul li a:hover{
+    color: var(--blue);
+}
+header .fa-bars{
+    font-size: 3rem;
+    color: var(--blue);
+    cursor: pointer;
+    display: none;
+}
+header .fa-times{
+    transform: rotate(180deg);
+}
+.header-active{
+    top: 0;
+    width: 100%;
+    box-shadow: .1rem .3rem rgba(0,0,0,.3);
+}
+.home{
+    min-height: 100vh;
+    padding-top: 10rem;
+}
+.home .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 85%;
+    margin: 0 auto;
+}
+.home .row .images img{
+    height: 75vh;
+}
+.home .content h1{
+    font-size: 4rem;
+    color: var(--black);
+}
+.home .content h1 span{
+    color: var(--blue);
+}
+.home .content p{
+    font-size: 1.9rem;
+    color: var(--black);
+}
+.about{
+    background: #f9f9f9;
+}
+.about .box-container .box{
+    width: 75%;
+    margin: 4rem auto;
+    border-radius: .5rem;
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--wigth);
+}
+.about .box-container .box .images{
+    width: 50%;
+    height: 40rem;
+}
+.about .box-container .box .images img{
+    width: 100%;
+    height: 100%;
+}
+.about .box-container .box .content{
+    height: 100%;
+    width: 50%;
+    padding: 2rem;
+}
+.about .box-container .box .content h3{
+    font-size: 3rem;
+    color: var(--blue);
+    display: flex;
+    align-items: start;
+}
+.about .box-container .box .content p{
+    font-size: 1.5rem;
+    color: var(--black);
+    padding: 1rem 0;
+    text-align: start;
+}
+.about .box-container .box:nth-child(even){
+    flex-flow: row-reverse;
+}
+.card .box-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card .box-container .box{
+    width: 30rem;
+    margin: 2rem 1rem;
+    overflow: hidden;
+    border-radius: .5rem;
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+}
+.card .box-container .box img{
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+.card .box-container .box .content{
+    padding: 1rem 1.3rem;
+}
+.card .box-container .box .content h2{
+    font-size: 2rem;
+    text-align: center;
+    color: var(--black);
+}
+.card .box-container .box .content h2:hover{
+    color: var(--blue);
+    text-decoration: underline;
+}
+.card .box-container .box .content p{
+    font-size: 1.7rem;
+    text-align: center;
+    color: var(--black);
+}
+.card .box-container .box .content .icons{
+    text-align: center;
+}
+.card .box-container .box .content .icons a{
+    font-size: 2rem;
+    color: var(--blue);
+    text-align: center;
+    margin: 1rem;
+}
+.patient-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.patient-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    padding: 20px;
+    text-align: left;
+}
+
+.patient-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+.symptoms ul, .solution ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.symptoms li, .solution li {
+    margin-bottom: 5px;
+}
+
+.symptoms {
+    color: #ff6347;
+}
+
+.solution {
+    color: #2e8b57;
+    margin-top: 15px;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+video {
+    animation: fadeIn 2s ease-in-out;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><span>D</span>octors <span>C</span>ares.</a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="doctor.html">Doctor</a></li>
+                <li><a href="#section blog">Blog</a></li>
+                <li><a href="contact.html ">Contact us</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+            </ul>
+        </nav>
+        <div class="fas fa-bars"></div>
+    </header>
+    <section id="home" class="home">
+        <div class="row">
+            <div class="images">
+                <img src="home.png" alt="">
+            </div>
+            <div class="content">
+                <h1><span>Stay</span> Safe, <span>Stay</span> Healthy.</h1>
+                <p>“Drugs are not always necessary. Belief in recovery always is.!</p>
+                <a href="#"><button class="button">Read More</button></a>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <h1 class="heading">About our Facility</h1>
+        <h1 class="title">Learn and explore our facility</h1>
+        <div class="box-container">
+            <div class="box">
+                <div class="images">
+                    <img src="about-1.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>ambulance services</h3>
+                    <p>We have the largest network of Advanced Cardiac Life Support ambulances. Our ambulances come equipped with advanced ECG machines, top-tier ventilators, and defibrillators, guaranteeing the best possible care. Each ambulance is staffed with highly-trained paramedics who follow established protocols to provide dedicated care during critical moments.
+
+                        This ensures that care begins as soon as we arrive, allowing us to reach you anytime, anywhere. Our swift assistance is provided through live-monitored integrated emergency responses, even before reaching the hospital.
+                        
+                        .</p>
+                    <a href="#"><button class="button">Learn more</button></a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="images">
+                    <img src="about-2.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>Emergency rooms</h3>
+                    <p>Emergency room are available for 24/7 day.we provide best quality of room and as well as bed.we provide best machine for the treatment.emegency room provides only for emergency case.</p>
+                    <a href="#"><button class="button">Learn more</button></a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="images">
+                    <img src="about-3.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>free check-ups</h3>
+                    <p>we provide free checkup for poor people and children.this check up for blood test,and find the sickness.</p>
+                    <a href="#"><button class="button">Learn more</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h1 class="heading">About medicine</h1>
+        <h1 class="title">diseases and their tablet</h1>
+        <div class="patient-container">
+            <!-- Fever -->
+            <div class="patient-card">
+                <img src="https://th.bing.com/th/id/OIP.QtyYS3AEymX1YuQF0UPMmwHaE8?rs=1&pid=ImgDetMain" alt="Fever Patient">
+                <p class="symptoms">
+                    <strong>Symptoms of Fever:</strong>
+                    <ul>
+                        <li>High fever (above 38°C or 100.4°F)</li>
+                        <li>Chills and shivering</li>
+                        <li>Fatigue</li>
+                        <li>Body aches</li>
+                        <li>Headache</li>
+                        <li>Loss of appetite</li>
+                        <li>Dehydration</li>
+                        <li>Weakness</li>
+                    </ul>
+                </p>
+                <p class="solution">
+                    <strong>Recommended Medicines:</strong>
+                    <ul>
+                        <li>Paracetamol (Tylenol) - Reduces fever and relieves pain.</li>
+                        <li>Ibuprofen (Advil, Motrin) - Anti-inflammatory and reduces fever.</li>
+                        <li>Aspirin - Helps reduce fever and relieve pain (not recommended for children).</li>
+                        <li>Acetaminophen - A pain reliever and fever reducer.</li>
+                        <li>Naproxen - Anti-inflammatory for reducing fever and body aches.</li>
+                        <li>Diclofenac - Reduces fever and inflammation.</li>
+                        <li>Mefenamic Acid - Commonly used for fever and pain relief.</li>
+                    </ul>
+                </p>
+            </div>
+    
+            <!-- Cold -->
+            <div class="patient-card">
+                <img src="https://thumbs.dreamstime.com/z/symptoms-cold-patient-hand-drawn-style-vector-design-illustrations-cough-character-health-pain-guy-sick-man-cough-157439460.jpg" alt="Cold Patient">
+                <p class="symptoms">
+                    <strong>Symptoms of Cold:</strong>
+                    <ul>
+                        <li>Runny or stuffy nose</li>
+                        <li>Sore throat</li>
+                        <li>Cough</li>
+                        <li>Sneezing</li>
+                        <li>Fatigue</li>
+                        <li>Mild fever</li>
+                        <li>Body aches</li>
+                    </ul>
+                </p>
+                <p class="solution">
+                    <strong>Recommended Medicines:</strong>
+                    <ul>
+                        <li>Paracetamol - Reduces fever and aches.</li>
+                        <li>Ibuprofen - Reduces pain and inflammation.</li>
+                        <li>Antihistamines (e.g., Cetirizine) - Helps with runny nose and sneezing.</li>
+                        <li>Decongestants (e.g., Pseudoephedrine) - Relieves nasal congestion.</li>
+                        <li>Throat lozenges - Soothes sore throat.</li>
+                    </ul>
+                </p>
+            </div>
+    
+            <!-- Dengue -->
+            <div class="patient-card">
+                <img src="https://images.healthshots.com/healthshots/en/uploads/2023/07/21131034/dengue-3.jpg" alt="Dengue Patient">
+                
+                <p class="symptoms">
+                    <strong>Symptoms of Dengue:</strong>
+                    <ul>
+                        <li>High fever</li>
+                        <li>Severe headache</li>
+                        <li>Pain behind the eyes</li>
+                        <li>Severe joint and muscle pain</li>
+                        <li>Skin rash</li>
+                        <li>Nausea or vomiting</li>
+                        <li>Bleeding gums or nose</li>
+                    </ul>
+                </p>
+                <p class="solution">
+                    <strong>Recommended Medicines:</strong>
+                    <ul>
+                        <li>Paracetamol - Reduces fever and pain (Avoid NSAIDs like Ibuprofen).</li>
+                        <li>Hydration - Drink plenty of fluids to avoid dehydration.</li>
+                        <li>Rest - Essential for recovery.</li>
+                        <li>Vitamin C - Helps in recovery and supports immune function.</li>
+                    </ul>
+                </p>
+            </div>
+    
+            <!-- Malaria -->
+            <div class="patient-card">
+                <img src="https://diagnear.com/files/blog_images/1050x500/MALARIA.png" alt="Malaria Patient">
+               
+                <p class="symptoms">
+                    <strong>Symptoms of Malaria:</strong>
+                    <ul>
+                        <li>High fever</li>
+                        <li>Chills and sweating</li>
+                        <li>Headache</li>
+                        <li>Muscle pain</li>
+                        <li>Nausea and vomiting</li>
+                        <li>Fatigue</li>
+                        <li>Diarrhea</li>
+                    </ul>
+                </p>
+                <p class="solution">
+                    <strong>Recommended Medicines:</strong>
+                    <ul>
+                        <li>Chloroquine - First-line treatment for non-resistant malaria strains.</li>
+                        <li>Artemether-lumefantrine (Coartem) - Commonly used combination therapy.</li>
+                        <li>Quinine - Used for severe malaria cases.</li>
+                        <li>Doxycycline - Used for both treatment and prevention of malaria.</li>
+                    </ul>
+                </p>
+            </div>
+    
+            <!-- Tuberculosis (TB) -->
+            <div class="patient-card">
+                <img src="https://gazettengr.com/wp-content/uploads/2020/09/Tuberculosis-patient.jpg" alt="TB Patient">
+               
+                <p class="symptoms">
+                    <strong>Symptoms of Tuberculosis (TB):</strong>
+                    <ul>
+                        <li>Persistent cough (lasting 3+ weeks)</li>
+                        <li>Chest pain</li>
+                        <li>Coughing up blood</li>
+                        <li>Weight loss</li>
+                        <li>Night sweats</li>
+                        <li>Fatigue</li>
+                        <li>Fever and chills</li>
+                    </ul>
+                </p>
+                <p class="solution">
+                    <strong>Recommended Medicines:</strong>
+                    <ul>
+                        <li>Isoniazid - First-line medication for TB.</li>
+                        <li>Rifampicin - Used in combination with other TB medications.</li>
+                        <li>Ethambutol - An anti-tuberculosis medication.</li>
+                        <li>Pyrazinamide - Part of the first-line TB treatment regimen.</li>
+                    </ul>
+                </p>
+            </div>
+    
+            <!-- Typhoid -->
+            <div class="patient-card">
+                <img src="https://detwxg7gzm61n.cloudfront.net/2018/07/31120207/Image_1-51.jpg" alt="Typhoid Patient">
+                
+                <p class="symptoms">
+                    <strong>Symptoms of Typhoid:</strong>
+                    <ul>
+                        <li>High fever</li>
+                        <li>Weakness</li>
+                        <li>Stomach pain</li>
+                        <li>Headache</li>
+                        <li>Diarrhea or constipation</li>
+                        <li>Loss of appetite</li>
+                        <li>Fatigue</li>
+                    </ul>
+                </p>
+                <p class="solution">
+                    <strong>Recommended Medicines:</strong>
+                    <ul>
+                        <li>Ciprofloxacin - Commonly prescribed antibiotic.</li>
+                        <li>Ceftriaxone - Used for resistant strains of Typhoid.</li>
+                        <li>Azithromycin - Effective against some Typhoid strains.</li>
+                        <li>Oral rehydration solutions - To prevent dehydration.</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="patient-card">
+                <img src="https://images.news18.com/ibnlive/uploads/2021/11/stomach-cancer-163757649716x9.jpg" alt="Stomach Pain Patient">
+                
+                <p class="symptoms">
+                    <strong>Symptoms of Stomach Pain (Pet Dard):</strong>
+                    <ul>
+                        <li>Cramping or sharp pain in the abdomen</li>
+                        <li>Gas and bloating</li>
+                        <li>Nausea or vomiting</li>
+                        <li>Diarrhea or constipation</li>
+                        <li>Indigestion</li>
+                    </ul>
+                </p>
+                <p class="solution">
+                    <strong>Recommended Medicines:</strong>
+                    <ul>
+                        <li>Antacids (e.g., Ranitidine, Omeprazole) - Reduces acidity and indigestion.</li>
+                        <li>Simethicone - Relieves gas and bloating.</li>
+                        <li>Buscopan - Reduces abdominal cramps.</li>
+                        <li>Dicyclomine - Relieves stomach spasms.</li>
+                        <li>Loperamide - For diarrhea control.</li>
+                    </ul>
+                </p>
+            </div>
+            <!-- Heart Attack -->
+            <div class="patient-card">
+                <img src="https://th.bing.com/th/id/OIP.7LO3NYjEOiKF_hDJkqk32gAAAA?rs=1&pid=ImgDetMain" alt="Heart Attack Patient">
+                
+                <p class="symptoms">
+                    <strong>Symptoms of Heart Attack:</strong>
+                    <ul>
+                        <li>Chest pain or discomfort</li>
+                        <li>Shortness of breath</li>
+                        <li>Pain radiating to the arms, neck, or jaw</li>
+                        <li>Nausea or vomiting</li>
+                        <li>Cold sweat</li>
+                        <li>Dizziness or lightheadedness</li>
+                    </ul>
+                </p>
+                <p class="solution">
+                    <strong>Recommended Medicines:</strong>
+                    <ul>
+                        <li>Aspirin - Helps reduce blood clotting.</li>
+                        <li>Nitroglycerin - Used to relieve chest pain (angina).</li>
+                        <li>Clopidogrel - Prevents blood clots.</li>
+                        <li>Beta-blockers (e.g., Metoprolol) - Lowers heart rate and blood pressure.</li>
+                        <li>ACE inhibitors - Helps relax blood vessels.</li>
+                    </ul>
+                </p>
+            </div>
+    
+        </div>
+    </section>
+    <section id="blog" class="blog">
+        <h1 class="heading">Health Blog</h1>
+        <h3 class="title">Stay informed about the latest in healthcare.</h3>
+        <div class="box-container">
+            <div class="box">
+                <img src="blog 1.png" alt="Diabetes Information">
+                <div class="content">
+                    <a href="#">
+                        <h2>Managing Diabetes</h2>
+                    </a>
+                    <p>Learn about managing blood sugar levels, diet plans, and medication options to keep diabetes in check.</p>
+                    <a href="https://www.niddk.nih.gov/health-information/diabetes/overview/managing-diabetes"><button class="button">Learn More</button></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="blog 2.png" alt="COVID-19 Vaccine">
+                <div class="content">
+                    <a href="#">
+                        <h2>COVID-19 Vaccine Updates</h2>
+                    </a>
+                    <p>Get the latest updates on the COVID-19 vaccine, its effectiveness, and availability in your area.</p>
+                    <a href="https://www.cowin.gov.in/"><button class="button">Learn More</button></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="blog 3.png" alt="Preventing Epidemics">
+                <div class="content">
+                    <a href="#">
+                        <h2>Preventing Epidemics</h2>
+                    </a>
+                    <p>Discover the best practices for preventing the spread of infectious diseases and maintaining public health.</p>
+                    <a href="https://www.bing.com/search?q=Preventing+Epidemics&form=ANNTH1&refig=d215aafe0e2143d088cb50dd4fe0a87e&pc=ASTS"><button class="button">Learn More</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <video src="video.mp4" autoplay muted></video>
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

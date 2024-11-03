@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Login & Registration</title>
+    <style>
+        /* Existing Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        *{  
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            background: url("https://eliteteams.co.uk/wp-content/uploads/2021/11/Image_01-2.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+        .wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 110vh;
+            background: rgba(39, 39, 39, 0.4);
+        }
+        .nav{
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            background: linear-gradient(rgba(39,39,39, 0.6), transparent);
+            z-index: 100;
+        }
+        .nav-logo p{
+            color: white;
+            font-size: 25px;
+            font-weight: 600;
+        }
+        .nav-menu ul{
+            display: flex;
+        }
+        .nav-menu ul li{
+            list-style-type: none;
+        }
+        .nav-menu ul li .link{
+            text-decoration: none;
+            font-weight: 500;
+            color: #fff;
+            padding-bottom: 15px;
+            margin: 0 25px;
+        }
+        .link:hover, .active{
+            border-bottom: 2px solid #fff;
+        }
+        .nav-button .btn{
+            width: 130px;
+            height: 40px;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.4);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+        .btn:hover{
+            background: rgba(255, 255, 255, 0.3);
+        }
+        #registerBtn{
+            margin-left: 15px;
+        }
+        .btn.white-btn{
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .btn.btn.white-btn:hover{
+            background: rgba(255, 255, 255, 0.5);
+        }
+        .nav-menu-btn{
+            display: none;
+        }
+        .form-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 512px;
+            height: 420px;
+            overflow: hidden;
+            z-index: 2;
+            margin-left: 380px;
+        }
+        .login-container {
+            position: absolute;
+            left: -510px; /* Initially hidden */
+            z-index: 1; /* Behind by default */
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            transition: 0.5s ease-in-out;
+        }
+
+        .register-container {
+            position: absolute;
+            right: 5px; /* In view by default */
+            z-index: 2; /* On top by default */
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            transition: 0.5s ease-in-out;
+        }
+        .top span{
+            color: #fff;
+            font-size: small;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .top span a{
+            font-weight: 500;
+            color: #fff;
+            margin-left: 5px;
+        }
+        header{
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+            padding: 10px 0 30px 0;
+        }
+        .two-forms{
+            display: flex;
+            gap: 10px;
+        }
+        .input-field{
+            font-size: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            height: 50px;
+            width: 100%;
+            padding: 0 10px 0 45px;
+            border: none;
+            border-radius: 30px;
+            outline: none;
+            transition: .2s ease;
+        }
+        .input-field:hover, .input-field:focus{
+            background: rgba(255, 255, 255, 0.25);
+        }
+        ::-webkit-input-placeholder{
+            color: #fff;
+        }
+        .input-box i{
+            position: relative;
+            top: -35px;
+            left: 17px;
+            color: #fff;
+        }
+        .submit{
+            font-size: 15px;
+            font-weight: 500;
+            color: black;
+            height: 45px;
+            width: 100%;
+            border: none;
+            border-radius: 30px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: .3s ease-in-out;
+        }
+        .submit:hover{
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+        }
+        .two-col{
+            display: flex;
+            justify-content: space-between;
+            color: #fff;
+            font-size: small;
+            margin-top: 10px;
+        }
+        .two-col .one{
+            display: flex;
+            gap: 5px;
+        }
+        .two label a{
+            text-decoration: none;
+            color: #fff;
+        }
+        .two label a:hover{
+            text-decoration: underline;
+        }
+        @media only screen and (max-width: 786px){
+            .nav-button{
+                display: none;
+            }
+            .nav-menu.responsive{
+                top: 100px;
+            }
+            .nav-menu{
+                position: absolute;
+                top: -800px;
+                display: flex;
+                justify-content: center;
+                background: rgba(255, 255, 255, 0.2);
+                width: 100%;
+                height: 90vh;
+                backdrop-filter: blur(20px);
+                transition: .3s;
+            }
+            .nav-menu ul{
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-menu-btn{
+                display: block;
+            }
+            .nav-menu-btn i{
+                font-size: 25px;
+                color: #fff;
+                padding: 10px;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                cursor: pointer;
+                transition: .3s;
+            }
+            .nav-menu-btn i:hover{
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        @media only screen and (max-width: 540px) {
+            .wrapper{
+                min-height: 100vh;
+            }
+            .form-box{
+                width: 100%;
+                height: 500px;
+            }
+            .register-container, .login-container{
+                width: 100%;
+                padding: 0 20px;
+            }
+            .register-container .two-forms{
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+        audio {
+            display: none; /* Hide the audio element */
+        }
+    </style>
+</head>
+<body>
+ <div class="wrapper">
+    <nav class="nav">
+        <div class="nav-logo">
+            <p>Doclab .</p>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="#" class="link active">Home</a></li>
+                <li><a href="#" class="link">Blog</a></li>
+                <li><a href="#" class="link">Services</a></li>
+                <li><a href="#" class="link">About</a></li>
+            </ul>
+        </div>
+        <div class="nav-button">
+            <button class="btn white-btn" id="loginBtn" onclick="toggleForms('login')"><a href="#login"></a>Sign in</button>
+            <button class="btn" id="registerBtn" onclick="toggleForms('register')"><a href="#register"></a>sign up</button>
+        </div>
+        <div class="nav-menu-btn">
+            <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+        </div>
+    </nav>
+
+    <!----------------------------- Form box ----------------------------------->    
+    <div class="form-box">
+        
+        <!------------------- login form -------------------------->
+
+        <div class="login-container" id="login">
+            <div class="top">
+                <span>Don't have an account? <a href="#" onclick="toggleForms('register')">Sign Up</a></span>
+            </div>
+            <header>Login</header>
+            <div class="input-box">
+                <i class='bx bx-user'></i>
+                <input type="text" class="input-field" placeholder="Username or Email">
+            </div>
+            <div class="input-box">
+                <i class='bx bx-lock-alt'></i>
+                <input type="password" class="input-field" placeholder="Password">
+            </div>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="check">
+                    <label for="check">Remember Me</label>
+                </div>
+                <div class="two">
+                    <label><a href="#">Forgot password?</a></label>
+                </div>
+            </div>
+            <input type="submit" class="submit" value="Sign In" onclick="login()">
+        </div>
+
+        <!------------------- register form -------------------------->
+
+        <div class="register-container" id="register">
+            <div class="top">
+                <span>Already have an account? <a href="#" onclick="toggleForms('login')">Login</a></span>
+            </div>
+            <header>Register</header>
+            <div class="two-forms">
+                <div class="input-box">
+                    <i class='bx bx-user'></i>
+                    <input type="text" class="input-field" placeholder="Firstname">
+                </div>
+                <div class="input-box">
+                    <i class='bx bx-user'></i>
+                    <input type="text" class="input-field" placeholder="Lastname">
+                </div>
+            </div>
+            <div class="input-box">
+                <i class='bx bx-envelope'></i>
+                <input type="email" class="input-field" placeholder="Email">
+            </div>
+            <div class="input-box">
+                <i class='bx bx-lock-alt'></i>
+                <input type="password" class="input-field" placeholder="Password">
+            </div>
+            <input type="submit" class="submit" value="Register" onclick="register()">
+        </div>
+    </div>
+ </div>
+
+ <!----------------------------- JavaScript ----------------------------------->    
+<script>
+// Function to handle sign up
+function register() {
+    var firstName = document.querySelector("#register input[placeholder='Firstname']").value;
+    var lastName = document.querySelector("#register input[placeholder='Lastname']").value;
+    var email = document.querySelector("#register input[placeholder='Email']").value;
+    var password = document.querySelector("#register input[placeholder='Password']").value;
+
+    var storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    var userExists = storedUsers.some(user => user.email === email);
+
+    if (userExists) {
+        alert("This email is already registered. Please log in.");
+    } else if (firstName && lastName && email && password) {
+        storedUsers.push({ firstName, lastName, email, password });
+        localStorage.setItem("users", JSON.stringify(storedUsers));
+        alert("Sign Up Successful! Please log in.");
+        toggleForms('login'); // Switch to login form after registration
+    } else {
+        alert("Please fill in all fields.");
+    }
+}
+
+// Function to handle login
+function login() {
+    var email = document.querySelector("#login input[placeholder='Username or Email']").value;
+    var password = document.querySelector("#login input[placeholder='Password']").value;
+
+    var storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    var user = storedUsers.find(user => user.email === email && user.password === password);
+
+    if (user) {
+        alert("Login Successful! Welcome, " + user.firstName);
+        speak("A sweet Welcome to, " + user.firstName + ". You have successfully logged in doclab website.");
+        window.location.href = "index.html"; // Redirect to homepage
+    } else {
+        alert("Invalid email or password. Please try again.");
+    }
+}
+
+// Function to handle text-to-speech
+function speak(text) {
+    var utterance = new SpeechSynthesisUtterance(text);
+    
+    // Find a female voice from the available voices
+    var voices = speechSynthesis.getVoices();
+    var femaleVoice = voices.find(voice => voice.name.toLowerCase().includes('female'));
+    
+    if (femaleVoice) {
+        utterance.voice = femaleVoice;
+    } else {
+        // Fallback to default voice if no female voice is found
+        utterance.voice = voices[0];
+    }
+    
+    speechSynthesis.speak(utterance);
+}
+
+
+// Function to toggle between login and register forms
+function toggleForms(form) {
+    var loginForm = document.getElementById("login");
+    var registerForm = document.getElementById("register");
+
+    if (form === 'login') {
+        // Move register form out and login form in
+        loginForm.style.left = "4px";
+        registerForm.style.right = "-520px";
+        loginForm.style.zIndex = "2";
+        registerForm.style.zIndex = "1";
+    } else {
+        // Move login form out and register form in
+        loginForm.style.left = "-510px";
+        registerForm.style.right = "5px";
+        loginForm.style.zIndex = "1";
+        registerForm.style.zIndex = "2";
+    }
+}
+
+</script>
+</body>
+</html>
