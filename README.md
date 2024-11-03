@@ -4,4 +4,6 @@ this websites will works in future for a specific clinic .in any case if you wan
 ![image alt]![image](https://github.com/user-attachments/assets/83583f91-11fc-4e77-8c57-add723ecf9d1)
 you can book an appointment with  any specific docto who works under our clinic or websites.
 ![image alt]![image](https://github.com/user-attachments/assets/6fe611e1-627c-412c-926c-a9324083356e)
+if you visit this websites you knowing wbout which medicine best for common disease.
+![image](https://github.com/user-attachments/assets/e9daddbe-f85c-403f-8a3a-19e0f44f35e2)
 
